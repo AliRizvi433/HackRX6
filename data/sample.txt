@@ -1,0 +1,14 @@
+Company: TechNova Pvt. Ltd.
+Department: Human Resources
+1. Working Hours:
+- Employees must log 9 hours daily, including a 1-hour break.
+- The work week is Monday to Friday.
+2. Leave Policy:
+- Casual Leave: 8 days/year
+- Sick Leave: 7 days/year
+- Earned Leave: 15 days/year (carry-forward allowed up to 30 days)
+- Maternity Leave: 26 weeks as per government norms
+3. Remote Work:
+- Allowed up to 2 days a week with manager approval
+4. Grievance Redressal:
+- Employees can write to hr@technova.com for internal issues

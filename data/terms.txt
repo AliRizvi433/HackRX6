@@ -1,0 +1,16 @@
+Compliance Terms & Conditions - Rev. 3.2  
+Applicable to: All internal departments and external vendors  
+
+1. Data Security:  
+- All systems must adhere to ISO 27001 standards.  
+- Data encryption at rest and in transit is mandatory.  
+
+2. Access Control:  
+- User roles must be clearly defined. Admin privileges must be audited quarterly.  
+
+3. Policy Violation:  
+- Non-compliance may result in termination of access and disciplinary actions.  
+- Incidents must be reported within 24 hours.  
+
+4. Vendor Contracts:  
+- All vendor agreements must include SLA clauses and data protection addenda.
