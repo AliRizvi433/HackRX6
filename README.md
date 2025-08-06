@@ -1,49 +1,59 @@
-🚀 LLM-Powered Query Retrieval System – HackRx 6.0
-This project is an intelligent, explainable query–retrieval system built for HackRx 6.0. It enables users to upload insurance/legal/HR/compliance documents (PDF, DOCX, or email), ask natural language questions, and receive accurate answers grounded in document context, along with structured JSON output.
+Here’s an improved and expanded version of your README for the **LLM-Powered Query Retrieval System (HackRx 6.0)**, with better structure, clarity, and additional information for reviewers and teammates:
 
-🧠 Features
-📄 Multi-format Document Support: Accepts PDF, DOCX, and email data (EML)
+---
 
-🔍 Semantic Chunking: Documents are split into meaningful segments (clauses/sections)
+# 🚀 LLM-Powered Query Retrieval System – HackRx 6.0
 
-🧬 Embeddings: Uses SentenceTransformer to encode document chunks for semantic search
+This project is an **intelligent, explainable query–retrieval system** built for HackRx 6.0. It enables users to upload insurance/legal/HR/compliance documents (PDF, DOCX, or email), ask natural language questions, and receive **accurate answers grounded in document context**, along with **structured JSON output**.
 
-⚡ FAISS Vector Search: Fast approximate nearest neighbor search for relevant clauses
+---
 
-🤖 LLM-Powered Responses: GPT-4 (or fallback) answers questions using retrieved context
+## 🧠 Features
 
-📦 Structured JSON Output: Returns relevant clauses, source metadata, and final answer
+* 📄 **Multi-format Document Support**: Accepts PDF, DOCX, and email data (EML)
+* 🔍 **Semantic Chunking**: Documents are split into meaningful segments (clauses/sections)
+* 🧬 **Embeddings**: Uses `SentenceTransformer` to encode document chunks for semantic search
+* ⚡ **FAISS Vector Search**: Fast approximate nearest neighbor search for relevant clauses
+* 🤖 **LLM-Powered Responses**: GPT-4 (or fallback) answers questions using retrieved context
+* 📦 **Structured JSON Output**: Returns relevant clauses, source metadata, and final answer
 
-🛠️ Installation
-bash
-Copy
-Edit
+---
+
+## 🛠️ Installation
+
+```bash
 git clone https://github.com/your-org/llm-query-retrieval.git
 cd llm-query-retrieval
 pip install -r requirements.txt
+```
+
 Ensure you have Python 3.9+ installed and a working OpenAI API Key.
 
-▶️ Running the App Locally
-bash
-Copy
-Edit
+---
+
+## ▶️ Running the App Locally
+
+```bash
 uvicorn app.main:app --reload --host=0.0.0.0 --port=8000
+```
+
 For production use (no reload):
 
-bash
-Copy
-Edit
+```bash
 uvicorn app.main:app --host=0.0.0.0 --port=8000
+```
+
 Make sure to export your OpenAI key:
 
-bash
-Copy
-Edit
+```bash
 export OPENAI_API_KEY="your-key-here"
-📤 Example API Request
-http
-Copy
-Edit
+```
+
+---
+
+## 📤 Example API Request
+
+```http
 POST /api/v1/hackrx/run
 Authorization: Bearer <your_token>
 Content-Type: application/json
@@ -55,10 +65,13 @@ Content-Type: application/json
     "What is the waiting period?"
   ]
 }
-✅ Sample Output
-json
-Copy
-Edit
+```
+
+---
+
+## ✅ Sample Output
+
+```json
 {
   "answers": [
     {
@@ -75,50 +88,53 @@ Edit
     ...
   ]
 }
-🧪 How it Works
-Document Parsing:
+```
 
-Uses PDFMiner and python-docx to extract clean text
+---
 
-Chunking:
+## 🧪 How it Works
 
-Splits text into logical paragraphs/clauses
+1. **Document Parsing**:
 
-Embedding:
+   * Uses PDFMiner and python-docx to extract clean text
+2. **Chunking**:
 
-Chunks are converted into vector embeddings using all-MiniLM-L6-v2
+   * Splits text into logical paragraphs/clauses
+3. **Embedding**:
 
-Indexing:
+   * Chunks are converted into vector embeddings using `all-MiniLM-L6-v2`
+4. **Indexing**:
 
-FAISS is used to store and search the chunks
+   * FAISS is used to store and search the chunks
+5. **Query Processing**:
 
-Query Processing:
+   * For each question, top relevant chunks are retrieved
+6. **LLM Response**:
 
-For each question, top relevant chunks are retrieved
+   * GPT-4 (or fallback) generates the final answer grounded in the retrieved context
+7. **Structured Output**:
 
-LLM Response:
+   * Answers are returned alongside metadata for explainability
 
-GPT-4 (or fallback) generates the final answer grounded in the retrieved context
+---
 
-Structured Output:
+## 🌐 Deployment (Replit Compatible)
 
-Answers are returned alongside metadata for explainability
+Make sure your `run.sh` file includes:
 
-🌐 Deployment (Replit Compatible)
-Make sure your run.sh file includes:
-
-bash
-Copy
-Edit
+```bash
 python build_chunks.py
 python build_index.py
 uvicorn app.main:app --host=0.0.0.0 --port=8000
-You can deploy on Replit using the "Web Server" template. Paste your OpenAI key in .env.
+```
 
-📁 Directory Structure
-arduino
-Copy
-Edit
+You can deploy on [Replit](https://replit.com/) using the **"Web Server"** template. Paste your OpenAI key in `.env`.
+
+---
+
+## 📁 Directory Structure
+
+```
 .
 ├── app/
 │   ├── main.py
@@ -135,14 +151,31 @@ Edit
 ├── faiss.index
 ├── run.sh
 └── requirements.txt
-🔒 Security Notes
-All API calls require a Bearer token in Authorization header
+```
 
-Email and document URLs are sanitized before processing
+---
 
-📌 Submission Details
-Webhook URL: https://<your-replit-url>.replit.app/api/v1/hackrx/run
+## 🔒 Security Notes
 
-Team Name: <Your Team>
+* All API calls require a Bearer token in `Authorization` header
+* Email and document URLs are sanitized before processing
 
-Problem Statement: "Build an LLM-powered intelligent query retrieval system for enterprise docs"
+---
+
+## 📌 Submission Details
+
+* Webhook URL: `https://<your-replit-url>.replit.app/api/v1/hackrx/run`
+* Team Name: `<Your Team>`
+* Problem Statement: "Build an LLM-powered intelligent query retrieval system for enterprise docs"
+
+---
+
+## 🤝 Acknowledgments
+
+* [FAISS by Meta](https://github.com/facebookresearch/faiss)
+* [Sentence Transformers](https://www.sbert.net/)
+* [OpenAI GPT-4](https://platform.openai.com/)
+
+---
+
+Let me know if you want me to create a PDF version of this or update any section!
